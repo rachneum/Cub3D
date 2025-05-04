@@ -1,5 +1,5 @@
 #include "../cub3D.h"
-	
+
 static int	read_file(t_data *game, char *file)//Lire mon fichier .cub ligne par ligne.
 {
 	//Gnl map.cub voir si couleurs ou textures existent suivit du bon chemin. (map tjs en dernier).
@@ -15,7 +15,7 @@ static int	read_file(t_data *game, char *file)//Lire mon fichier .cub ligne par 
 		if (ft_strlen(line) > 0)
 		{
 			line = ft_strtrim(line, " ");
-			if (!check_texture_and_color(game, line))
+			if (!check_texture(game, line))
 			{
 				printf("TEST\n");
 				return (1);

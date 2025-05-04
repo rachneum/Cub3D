@@ -15,7 +15,9 @@ SRCS = 	get_next_line/get_next_line.c \
 		utils/utils_error.c\
 		init/init_game_struct.c\
 		parsing/parse.c\
-		parsing/check.c\
+		parsing/check_texture.c\
+		parsing/check_color.c\
+		parsing/check_map.c\
 
 OBJS = $(SRCS:.c=.o)
 
