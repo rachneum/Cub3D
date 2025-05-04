@@ -1,22 +1,32 @@
 #include "../cub3D.h"
 
-//Error si texture ou couleur manquante.
+//Gérer error si texture ou couleur manquante.
+//Dois-je checker si différents fichier textures??
 
-/*static int	check_textures_path(char *path)//Vérifier la validité du chemin avec fonction checkpath_txts. check que c'est bien un fichier avec une extension .xpm, vérifier que le fichier est bien lisible.
+static int	check_textures_path(char *path)//Vérifie chemin vers la texture et format.
 {
+    int	len;
+	int fd;
 
-}*/
+	if ((fd = open(path, O_RDONLY)) == -1)
+		ft_error("ERROR: Opening texture file failure!\n");
+	len = ft_strlen(path);
+	if ((ft_strncmp(path + len - 4, ".xpm", 4)) != 0)
+		ft_error("ERROR: Texture format is invalid!\n");//->Vérifie format fichier texture.
+	return (0);
+}
 
 int	check_texture(t_data *game, char *line)
 {
 	char	*path;
+
 	if (ft_strncmp(line, "NO ", 3) == 0)
 	{
 		if (game->texture[0] != NULL)
 			ft_error("ERROR: Duplicate NO texture!\n");
-		path = ft_strtrim(line + 3, " \n");//line + 3 donne le chemin et " \n" nettoie les espaces eventuels.
-		//if (!check_textures_path(path))//Vérifie que c'est un fichier.xpm accessible.
-		//	ft_error("ERROR: Invalid texture path");
+		path = ft_strtrim(line + 3, " \n");//strtrim va supprimer les espaces et \n. line + 3 pour pointer sur le "./...".
+		if (check_textures_path(path))
+	    	ft_error("ERROR: Invalid texture path");
 		game->texture[0] = ft_strdup(path);
 		free(path);
 		printf ("%s\n", line);
@@ -27,8 +37,8 @@ int	check_texture(t_data *game, char *line)
 		if (game->texture[1] != NULL)
 			ft_error("ERROR: Duplicate SO texture!\n");
 		path = ft_strtrim(line + 3, " \n");
-		//if (!check_txts_path(path))
-		//	ft_error("ERROR: Invalid texture path");
+		if (check_textures_path(path))
+	    	ft_error("ERROR: Invalid texture path");
 		game->texture[1] = ft_strdup(path);
 		free(path);
 		printf ("%s\n", line);
@@ -39,8 +49,8 @@ int	check_texture(t_data *game, char *line)
 		if (game->texture[2] != NULL)
 			ft_error("ERROR: Duplicate WE texture!\n");
 		path = ft_strtrim(line + 3, " \n");
-		//if (!check_txts_path(path))
-		//	ft_error("ERROR: Invalid texture path");
+		if (check_textures_path(path))
+	    	ft_error("ERROR: Invalid texture path");
 		game->texture[2] = ft_strdup(path);
 		free(path);
 		printf ("%s\n", line);
@@ -51,8 +61,8 @@ int	check_texture(t_data *game, char *line)
 		if (game->texture[3] != NULL)
 			ft_error("ERROR: Duplicate EA texture!\n");
 		path = ft_strtrim(line + 3, " \n");
-		//if (!check_txts_path(path))
-		//	ft_error("ERROR: Invalid texture path");
+		if (check_textures_path(path))
+	    	ft_error("ERROR: Invalid texture path");
 		game->texture[3] = ft_strdup(path);
 		free(path);
 		printf ("%s\n", line);
