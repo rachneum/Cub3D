@@ -12,9 +12,10 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = 	get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
 		main.c\
-		utils_error.c\
-		init_game_struct.c\
-		parse.c\
+		utils/utils_error.c\
+		init/init_game_struct.c\
+		parsing/parse.c\
+		parsing/check.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -11,6 +11,6 @@ int	main(int argc, char **argv)
 	if ((ft_strncmp(argv[1] + len - 4, ".cub", 4)) != 0)
 		ft_error("ERROR: Map format is invalid!\n");//->Vérifie format map.
 	init_game_struct(&game);//->Initialise tous les éléments de ma structure principale.
-	parse(argv[1]);//->Parsing du fichier .cub.
+	parse(&game, argv[1]);//->Parsing du fichier .cub.
 	return (0);
 }

@@ -23,6 +23,10 @@ void	ft_error(char *str);
 void    init_game_struct(t_data *game);
 
 /*________PARSE________*/
-void    parse(char *file);
+void    parse(t_data *game, char *file);
+void	parse_map(void);
+int	check_color(t_data *game, char *line);
+int	check_texture_and_color(t_data *game, char *line);
+
 
 #endif
