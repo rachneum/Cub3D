@@ -5,5 +5,7 @@
 
 void	parse_map(void)//Parsing map.
 {
-	printf("SUCCESS\n");
+	int	nb_lignes;
+
+	nb_lignes = 
 }

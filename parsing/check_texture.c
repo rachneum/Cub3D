@@ -9,14 +9,17 @@ static int	check_textures_path(char *path)//Vérifie chemin vers la texture et f
 	int fd;
 
 	if ((fd = open(path, O_RDONLY)) == -1)
+	{
 		ft_error("ERROR: Opening texture file failure!\n");
+		close (fd);
+	}
 	len = ft_strlen(path);
 	if ((ft_strncmp(path + len - 4, ".xpm", 4)) != 0)
 		ft_error("ERROR: Texture format is invalid!\n");//->Vérifie format fichier texture.
 	return (0);
 }
 
-int	check_texture(t_data *game, char *line)
+int	check_texture(t_data *game, char *line)//Protéger path dans mes conditions au cas où il est vide!
 {
 	char	*path;
 

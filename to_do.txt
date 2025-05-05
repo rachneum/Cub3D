@@ -1,7 +1,7 @@
-£Parsing du fichier .cub:
+Parsing du fichier .cub:
 
 -> Lire ligne par ligne pour stocker:
-    ->textures (NO, SO, WE, EA).???
+    ->textures (NO, SO, WE, EA).
     ->couleurs sol/plafond (F et C).
     ->map (dernier bloc du fichier).
 -> Vérifier:

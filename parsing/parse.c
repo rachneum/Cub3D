@@ -19,6 +19,7 @@ static int	read_file(t_data *game, char *file)//Lire mon fichier .cub ligne par 
 		free(line);
 	}
 	return (0);
+	
 }
 
 void    parse(t_data *game, char *file)
