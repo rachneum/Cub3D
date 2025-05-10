@@ -9,5 +9,6 @@ void    init_game_struct(t_data *game)
     game->floor_color = -1;
     game->ceiling_color = -1;
     game->map = NULL;
-
+    game->x = ;
+    game->y = ;
 }

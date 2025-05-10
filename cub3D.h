@@ -14,6 +14,9 @@ typedef struct s_data
 	char	*texture[4];
 	int		floor_color;
 	int		ceiling_color;
+	int		x;
+	int		y;
+
 }	t_data;
 
 /*________UTILS_ERROR________*/
@@ -27,5 +30,9 @@ void    parse(t_data *game, char *file);
 int		check_texture(t_data *game, char *line);
 int		check_color(t_data *game, char *line);
 int		parse_map(t_data *game, char **lines);
+
+/*________CHECK_MAP________*/
+void    map_is_valid(t_data *game);
+
 
 #endif
