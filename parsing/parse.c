@@ -55,7 +55,7 @@ void	parse(t_data *game, char *file)
 		i++;
 	}
 	if (!parse_map(game, &lines[i]))
-		ft_error("ERROR: Map parsing has failed!\n");
+		ft_free_error("ERROR: Map parsing has failed!\n", game);
 	i = 0;
 	while (game->map[i])
 		printf("%s\n", game->map[i++]);

@@ -1,26 +1,16 @@
-->refaire fonctionn counnt_length
-->
-
-
-
 
 -> Vérifier:
     ->format des RGB (range[0-255]).
     ->validité des chemins.
-    ->la map est fermée.
+
     ->un seul joueur présent (N, S, E, W).
 
 -> Attention à bien free tous mes mallocs.
 
--> Créer fonction free_error.
-Gère tous les malloc avec vérification + libération.
-
 Validation de la map:
 
--> Map entourée de murs.
 -> Pas d'espaces vides ouverts.
 -> Vérifier avec une fonction flood fill ou DFS sur la position du joueur.
--> Map est bien rectangulaire.
 ____________________
 Initialisation du jeu:
 

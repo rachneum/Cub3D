@@ -1,5 +1,10 @@
 #include "../cub3D.h"
 
+//Check 1 seul position de départ (1 seul joueur présent N, S, E, W).
+//Check validié des chemins.
+
+
+
 static int  map_is_rectangular(t_data *game)
 {
     int	y;
