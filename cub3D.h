@@ -22,6 +22,7 @@ typedef struct s_data
 
 /*________UTILS________*/
 void	ft_error(char *str);
+void	ft_free_error(char *str, t_data *game);
 int		count_length(char *file);
 
 /*________INIT________*/
