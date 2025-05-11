@@ -19,6 +19,7 @@ SRCS = 	get_next_line/get_next_line.c \
 		parsing/check_color.c\
 		parsing/parse_map.c\
 		parsing/check_map.c\
+		utils/map_utils.c\
 
 OBJS = $(SRCS:.c=.o)
 

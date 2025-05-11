@@ -1,3 +1,8 @@
+->refaire fonctionn counnt_length
+->
+
+
+
 
 -> Vérifier:
     ->format des RGB (range[0-255]).

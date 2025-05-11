@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-void    init_game_struct(t_data *game)
+void    init_game_struct(t_data *game, char *file)
 {
     game->texture[0] = NULL;
     game->texture[1] = NULL;
@@ -9,6 +9,6 @@ void    init_game_struct(t_data *game)
     game->floor_color = -1;
     game->ceiling_color = -1;
     game->map = NULL;
-    //game->x = ;//count_length
+    game->x = count_length(file);
     game->y = game->nb_map_lines;
 }

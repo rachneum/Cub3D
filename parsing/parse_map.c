@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-static int	maps_content(char *line)
+int	maps_content(char *line)
 {
 	int	i;
 

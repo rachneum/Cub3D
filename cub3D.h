@@ -20,17 +20,19 @@ typedef struct s_data
 
 }	t_data;
 
-/*________UTILS_ERROR________*/
+/*________UTILS________*/
 void	ft_error(char *str);
+int		count_length(char *file);
 
 /*________INIT________*/
-void    init_game_struct(t_data *game);
+void    init_game_struct(t_data *game, char *file);
 
 /*________PARSE________*/
 void    parse(t_data *game, char *file);
 int		check_texture(t_data *game, char *line);
 int		check_color(t_data *game, char *line);
 int		parse_map(t_data *game, char **lines);
+int		maps_content(char *line);
 
 /*________CHECK_MAP________*/
 void    map_is_valid(t_data *game);
