@@ -18,16 +18,15 @@ int	parse_map(t_data *game, char **lines)
 {
 	int		i;
 	int		j;
-	int		map_lines;
 	char	*trimmed;
 
 	i = 0;
-	map_lines = 0;
-	while (lines[map_lines])
+	game->nb_map_lines = 0;
+	while (lines[game->nb_map_lines])
 	{
-		char *trimmed = ft_strtrim(lines[map_lines], " \n");
+		char *trimmed = ft_strtrim(lines[game->nb_map_lines], " \n");
 		if (ft_strlen(trimmed) > 0 && maps_content(trimmed))
-			map_lines++;//Compter le nombre de lignes valides nettoyées (sans espaces ou \n)
+			game->nb_map_lines++;//Compter le nombre de lignes valides nettoyées (sans espaces ou \n)
 		else if (ft_strlen(trimmed) > 0)
 		{
 			free(trimmed);
@@ -35,12 +34,12 @@ int	parse_map(t_data *game, char **lines)
 		}
 		free(trimmed);
 	}
-	game->map = malloc(sizeof(char *) * (map_lines + 1));
+	game->map = malloc(sizeof(char *) * (game->nb_map_lines + 1));
 	if (!game->map)
 		ft_error("Malloc failed\n");
 	i = 0;
 	j = 0;
-	while (j < map_lines)
+	while (j < game->nb_map_lines)
 	{
 		trimmed = ft_strtrim(lines[i], " \n");
 		if (ft_strlen(trimmed) > 0 && maps_content(trimmed))

@@ -1,31 +1,15 @@
-Parsing du fichier .cub:
 
--> Lire ligne par ligne pour stocker:
-    ->textures (NO, SO, WE, EA).
-    ->couleurs sol/plafond (F et C).
-    ->map (dernier bloc du fichier).
 -> Vérifier:
     ->format des RGB (range[0-255]).
     ->validité des chemins.
     ->la map est fermée.
     ->un seul joueur présent (N, S, E, W).
-____________________
-A faire:
 
-- Créer des structs pour stacker toutes ces infos.
--> Utiliser une fonction par type d'élément (parse_texture, parse_color, parse_map, ect..).
 -> Attention à bien free tous mes mallocs.
 
-(Crée une fonction exit_error(char *msg, t_game *game) qui affiche un message et libère la mémoire proprement.
-
-Ajoute des tests unitaires simples pour ton parsing (fichiers de test).
-
+-> Créer fonction free_error.
 Gère tous les malloc avec vérification + libération.
 
-Respecte bien la Norme (max 25 lignes, 5 variables locales, etc).
-
-Ajoute valgrind et leaks dans ton Makefile debug.)
-____________________
 Validation de la map:
 
 -> Map entourée de murs.

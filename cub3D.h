@@ -14,6 +14,7 @@ typedef struct s_data
 	char	*texture[4];
 	int		floor_color;
 	int		ceiling_color;
+	int		nb_map_lines;
 	int		x;
 	int		y;
 

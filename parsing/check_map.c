@@ -2,7 +2,7 @@
 
 static int  map_is_rectangular(t_data *game)
 {
-    
+
 }
 
 static int  map_is_closed(t_data *game)
