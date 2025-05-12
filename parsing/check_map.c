@@ -1,9 +1,6 @@
 #include "../cub3D.h"
 
-//Check 1 seul position de départ (1 seul joueur présent N, S, E, W).
-//Check position de départ existe.
 //Check validié des chemins.
-
 static int	start_pos(t_data *game)
 {
 	int	y;
@@ -24,6 +21,8 @@ static int	start_pos(t_data *game)
 		y++;
 	}
 	if (count != 1)
+		return (0);
+	else if (!count)
 		return (0);
 	return (1);
 }
