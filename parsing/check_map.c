@@ -1,6 +1,5 @@
 #include "../cub3D.h"
 
-//Check validié des chemins.
 static int	start_pos(t_data *game)
 {
 	int	y;

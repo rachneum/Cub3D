@@ -38,5 +38,4 @@ int		maps_content(char *line);
 /*________CHECK_MAP________*/
 void    map_is_valid(t_data *game);
 
-
 #endif

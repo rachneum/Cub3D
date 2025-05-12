@@ -8,7 +8,9 @@
 
 Validation de la map:
 
--> Vérifier avec une fonction flood fill ou DFS sur la position du joueur.??
+-> Vérifier avec une fonction flood fill ou DFS sur la position du joueur.???? Pas besoin car pas de but??
+
+
 ____________________
 Initialisation du jeu:
 
