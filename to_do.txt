@@ -1,15 +1,13 @@
 
 -> Vérifier:
-    ->format des RGB (range[0-255]).
+
+    ->gérer qd \n dans map et plusieurs \n à la suite de map.
     ->validité des chemins.
 
-    ->un seul joueur présent (N, S, E, W).
-
--> Attention à bien free tous mes mallocs.
+-> Attention à bien free tous mes mallocs!!
 
 Validation de la map:
 
--> Pas d'espaces vides ouverts.
 -> Vérifier avec une fonction flood fill ou DFS sur la position du joueur.
 ____________________
 Initialisation du jeu:

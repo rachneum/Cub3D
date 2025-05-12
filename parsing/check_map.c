@@ -1,9 +1,32 @@
 #include "../cub3D.h"
 
 //Check 1 seul position de départ (1 seul joueur présent N, S, E, W).
+//Check position de départ existe.
 //Check validié des chemins.
 
+static int	start_pos(t_data *game)
+{
+	int	y;
+	int	x;
+	int	count;
 
+	y = 0;
+	count = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while(game->map[y][x])
+		{
+			if (game->map[y][x] == 'N' || game->map[y][x] == 'S' || game->map[y][x] == 'E' || game->map[y][x] == 'W')
+				count++;
+			x++;
+		}
+		y++;
+	}
+	if (count != 1)
+		return (0);
+	return (1);
+}
 
 static int  map_is_rectangular(t_data *game)
 {
@@ -58,4 +81,6 @@ void    map_is_valid(t_data *game)
         ft_free_error("ERROR: Map is not rectangular!\n", game);
     else if (!map_is_closed(game))
         ft_free_error("ERROR: Map is not closed!\n", game);
+	else if (!start_pos(game))
+		ft_free_error("ERROR: Wrong player's starting position!\n", game);
 }
