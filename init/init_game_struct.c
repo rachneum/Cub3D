@@ -6,8 +6,8 @@ void    init_game_struct(t_data *game, char *file)
     game->texture[1] = NULL;
     game->texture[2] = NULL;
     game->texture[3] = NULL;
-    game->floor_color = -1;
-    game->ceiling_color = -1;
+    game->check_floor_color = 0;
+    game->check_ceiling_color = 0;
     game->map = NULL;
     game->x = count_length(file);
     game->y = game->nb_map_lines;
