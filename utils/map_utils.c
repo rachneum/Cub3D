@@ -12,7 +12,7 @@ int	count_length(char *file)
 		ft_error("ERROR: Map file opening has failed!\n");
 	while ((line = get_next_line(fd)))
 	{
-		if (maps_content(line))
+		if (maps_content(file))
 		{
 			leng = ft_strlen(line);
 			if (leng > 0 && line[leng - 1] == '\n')

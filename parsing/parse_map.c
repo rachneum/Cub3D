@@ -14,7 +14,7 @@ int	maps_content(char *line)
 	return (1);
 }
 
-int	parse_map(t_data *game, char **lines)
+int parse_map(t_data *game, char **lines)
 {
 	int		i;
 	int		j;
@@ -22,28 +22,34 @@ int	parse_map(t_data *game, char **lines)
 
 	i = 0;
 	game->nb_map_lines = 0;
-	while (lines[game->nb_map_lines])
+	while (lines[i])
 	{
-		char *trimmed = ft_strtrim(lines[game->nb_map_lines], " \n");
-		if (ft_strlen(trimmed) > 0 && maps_content(trimmed))
-			game->nb_map_lines++;//Compter le nombre de lignes valides nettoyées (sans espaces ou \n)
-		else if (ft_strlen(trimmed) > 0)
-		{
-			free(trimmed);
-			return (0);
-		}
+		trimmed = ft_strtrim(lines[i], " \n");
+		if (!trimmed)
+			ft_error("ERROR: Trim has failed!\n");
+		if (ft_strlen(trimmed) > 0)
+			game->nb_map_lines++;
 		free(trimmed);
+		i++;
 	}
 	game->map = malloc(sizeof(char *) * (game->nb_map_lines + 1));
 	if (!game->map)
-		ft_error("Malloc failed\n");
+		ft_error("ERROR: Malloc has failed!\n");
 	i = 0;
 	j = 0;
-	while (j < game->nb_map_lines)
+	while (lines[i])
 	{
 		trimmed = ft_strtrim(lines[i], " \n");
-		if (ft_strlen(trimmed) > 0 && maps_content(trimmed))
-			game->map[j++] = ft_strdup(trimmed);
+		if (!trimmed)
+			ft_error("ERROR: Trim has failed!\n");
+
+		if (ft_strlen(trimmed) > 0)
+		{
+			game->map[j] = ft_strdup(trimmed);
+			if (!game->map[j])
+				ft_error("ERROR: Strdup has failed!\n");
+			j++;
+		}
 		free(trimmed);
 		i++;
 	}

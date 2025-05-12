@@ -18,6 +18,7 @@ static char **read_lines(const char *file)
 		count++;
 		free(line);
 	}
+	//printf("%d", count);
 	close(fd);
 	fd = open(file, O_RDONLY);//Ouvir une 2eme fois afin de stocker.
 	if (fd == -1)

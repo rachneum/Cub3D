@@ -1,6 +1,8 @@
 
 -> Vérifier:
 
+vérifier si la map est closed en fonction du joueur?? ou elle doit etre ferméepour le joueur?
+
     ->gérer qd \n dans map et plusieurs \n à la suite de map.
     ->validité des chemins.
 
