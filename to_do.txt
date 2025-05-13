@@ -1,5 +1,4 @@
--> Vérifier:
-
+-> Gérer rgb null ex: F 220, ,0.
 -> Attention à bien free tous mes mallocs!!
 ____________________
 Initialisation du jeu:

@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-static char **read_lines(const char *file)
+static char **read_lines(char *file)
 {
 	char	**lines;
 	char	*line;

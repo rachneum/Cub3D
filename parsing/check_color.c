@@ -17,11 +17,8 @@ static int	parse_color(char *str)//Check RGB.
 	r = ft_atoi(rgb[0]);
 	g = ft_atoi(rgb[1]);
 	b = ft_atoi(rgb[2]);
-	if (!ft_isdigit(r) || !ft_isdigit(g) || !ft_isdigit(b))
-		ft_error("ERROR: Digitd only for RGB!\n");
 	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 		ft_error("ERROR: RGB values must be between 0 and 255!\n");
-	printf("%d\n", g);
 	return (1);
 }
 
