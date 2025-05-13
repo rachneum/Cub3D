@@ -19,6 +19,8 @@ static char **read_lines(char *file)
 		free(line);
 	}
 	close(fd);
+	if (count == 0)
+		ft_error("ERROR: File must contain something!\n");
 	fd = open(file, O_RDONLY);//Ouvir une 2eme fois afin de stocker.
 	if (fd == -1)
 		ft_error("ERROR: Failure reopening file\n");
