@@ -13,5 +13,6 @@ int	main(int argc, char **argv)
 	init_game_struct(&game, argv[1]);//Initialise tous les éléments de ma structure principale.
 	parse(&game, argv[1]);//Parsing du fichier .cub.
 	map_is_valid(&game);//Validité de ma map.
+	
 	return (0);
 }

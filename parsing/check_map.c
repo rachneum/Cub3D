@@ -26,26 +26,6 @@ static int	start_pos(t_data *game)
 	return (1);
 }
 
-/*int	maps_content(t_data *game)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	while (game->map[y])
-	{
-		x = 0;
-		while (game->map[y][x])
-		{
-			if (game->map[y][x] != ' ' && game->map[y][x] != '0' && game->map[y][x] != '1' && game->map[y][x] != 'N' && game->map[y][x] != 'S' && game->map[y][x] != 'E' && game->map[y][x] != 'W')
-				return (0);
-			x++;
-		}
-		y++;
-	}
-	return (1);
-}*/
-
 static int	map_is_closed(t_data *game)
 {
 	int	    x;
@@ -99,8 +79,6 @@ void    map_is_valid(t_data *game)
         ft_free_error("ERROR: Map is not rectangular!\n", game);
     else if (!map_is_closed(game))
         ft_free_error("ERROR: Map is not closed!\n", game);
-	/*else if (!maps_content(game))
-		ft_free_error("ERROR: Map contains wrong element!\n", game);*/
 	else if (!start_pos(game))
 		ft_free_error("ERROR: Wrong player's starting position!\n", game);
 }
