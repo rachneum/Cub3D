@@ -1,7 +1,5 @@
 -> Vérifier:
 
--> F 220, ,0  Vérifier si élément null dans rgb.
-
 -> Attention à bien free tous mes mallocs!!
 ____________________
 Initialisation du jeu:
