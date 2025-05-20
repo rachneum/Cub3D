@@ -3,7 +3,9 @@
 static int	parse_color(char *str)//Check RGB.
 {
 	char	**rgb;
+	char	*cleaned[3];
 	int		i;
+	int		j;
 	int		r, g, b;
 
 	rgb = ft_split(str, ',');
@@ -17,6 +19,21 @@ static int	parse_color(char *str)//Check RGB.
 	r = ft_atoi(rgb[0]);
 	g = ft_atoi(rgb[1]);
 	b = ft_atoi(rgb[2]);
+	i = 0;
+	while (i < 3)
+	{
+		cleaned[i] = ft_strtrim(rgb[i], " \t");
+		if (!cleaned[i] || cleaned[i][0] == '\0')
+			ft_error("ERROR: RGB component is empty or invalid!\n");
+		j = 0;
+		while (cleaned[i][j])
+		{
+			if (!ft_isdigit(cleaned[i][j]))
+				ft_error("ERROR: RGB components must be numbers!\n");
+			j++;
+		}
+		i++;
+	}
 	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 		ft_error("ERROR: RGB values must be between 0 and 255!\n");
 	return (1);

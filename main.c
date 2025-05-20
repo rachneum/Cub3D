@@ -2,7 +2,7 @@
 
 int	main(int argc, char **argv)
 {
-	int	len;
+	int		len;
 	t_data	game;
 
 	if (argc != 2)

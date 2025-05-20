@@ -13,6 +13,7 @@ static int	check_textures_path(char *path)//Vérifie chemin vers la texture et f
 		ft_error("ERROR: Opening texture file failure!\n");
 		close (fd);
 	}
+	//Check si path n'existe pas
 	len = ft_strlen(path);
 	if ((ft_strncmp(path + len - 4, ".xpm", 4)) != 0)
 		ft_error("ERROR: Texture format is invalid!\n");//->Vérifie format fichier texture.
