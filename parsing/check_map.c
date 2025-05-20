@@ -59,7 +59,7 @@ static int	map_is_closed(t_data *game)
 	return (1);
 }
 
-static int  map_is_rectangular(t_data *game)
+/*static int  map_is_rectangular(t_data *game)
 {
     int	y;
 
@@ -71,13 +71,13 @@ static int  map_is_rectangular(t_data *game)
 		y++;
 	}
 	return (1);
-}
+}*/
 
 void    map_is_valid(t_data *game)
 {
-    if (!map_is_rectangular(game))
-        ft_free_error("ERROR: Map is not rectangular!\n", game);
-    else if (!map_is_closed(game))
+    //if (!map_is_rectangular(game))
+    //    ft_free_error("ERROR: Map is not rectangular!\n", game);
+    if (!map_is_closed(game))
         ft_free_error("ERROR: Map is not closed!\n", game);
 	else if (!start_pos(game))
 		ft_free_error("ERROR: Wrong player's starting position!\n", game);

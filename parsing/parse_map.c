@@ -34,6 +34,8 @@ int parse_map(t_data *game, char **lines)
 		free(trimmed);
 		i++;
 	}
+	if (!game->nb_map_lines)
+		ft_error("ERROR: Where is the map?\n");
 	game->map = malloc(sizeof(char *) * (game->nb_map_lines + 1));
 	if (!game->map)
 		ft_error("ERROR: Malloc has failed!\n");
