@@ -15,18 +15,23 @@ typedef struct s_data
 	int		check_floor_color;
 	int		check_ceiling_color;
 	int		nb_map_lines;
-	int		x;
-	int		y;
+	//int		y;
+	//int		x;
+	//int		player_y;
+	//int		player_x;
+	char	**map_copy;
+
 
 }	t_data;
 
 /*________UTILS________*/
 void	ft_error(char *str);
 void	ft_free_error(char *str, t_data *game);
-int		count_length(char *file);
+//int		count_length(char *file);
+char	**copy_map(char **src_map);
 
 /*________INIT________*/
-void    init_game_struct(t_data *game, char *file);
+void    init_game_struct(t_data *game);
 
 /*________PARSE________*/
 void    parse(t_data *game, char *file);

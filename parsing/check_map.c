@@ -1,5 +1,52 @@
 #include "../cub3D.h"
 
+static int	flood_fill(t_data *game, int y, int x)
+{
+	if (y < 0 || x < 0 || !game->map_copy[y] || x >= (int)ft_strlen(game->map_copy[y]))
+		return (1);//Fuite détectée.
+	if (game->map_copy[y][x] == ' ' || game->map_copy[y][x] == '\0')
+		return (1);//Fuite détectée.
+	if (game->map_copy[y][x] == '1' || game->map_copy[y][x] == 'X')
+		return (0);//Mur ou déjà visité.
+	game->map_copy[y][x] = 'X';//Marquer comme visité.
+	if (flood_fill(game, y - 1, x))
+		return (1);
+	if (flood_fill(game, y + 1, x))
+		return (1);
+	if (flood_fill(game, y, x - 1))
+		return (1);
+	if (flood_fill(game, y, x + 1))
+		return (1);
+	return (0);
+}
+
+static void	map_is_closed(t_data *game)
+{
+	int y;
+	int	x;
+
+	y = 0;
+	game->map_copy = copy_map(game->map);
+	if (!game->map_copy)
+		ft_error("ERROR: There is nothing in map copy!\n");
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'N' || game->map[y][x] == 'S'
+				|| game->map[y][x] == 'E' || game->map[y][x] == 'W')
+			{
+				if (flood_fill(game, y, x))
+					ft_free_error("ERROR: Map is not closed around the player!\n", game);
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
 static int	start_pos(t_data *game)
 {
 	int	y;
@@ -26,59 +73,15 @@ static int	start_pos(t_data *game)
 	return (1);
 }
 
-static int	map_is_closed(t_data *game)
+void	map_is_valid(t_data *game)
 {
-	int	    x;
-	int	    y;
-	int 	width;
+	int i;
 
-	if (!game->map || !game->map[0])
-		return (0);
-	width = ft_strlen(game->map[0]);
-	x = 0;
-	while (x < width)
-	{
-		if (game->map[0][x] != '1')
-			return (0);
-		x++;
-	}
-	y = 1;
-	while (game->map[y + 1])
-	{
-		if (game->map[y][0] != '1' || game->map[y][width - 1] != '1')
-			return (0);
-		y++;
-	}
-	x = 0;
-	while (x < width)
-	{
-		if (game->map[y][x] != '1')
-			return (0);
-		x++;
-	}
-	return (1);
-}
-
-/*static int  map_is_rectangular(t_data *game)
-{
-    int	y;
-
-	y = 0;
-	while (game->map[y])
-	{
-		if (ft_strlen(game->map[y]) != ft_strlen(game->map[0]))
-			return (0);
-		y++;
-	}
-	return (1);
-}*/
-
-void    map_is_valid(t_data *game)
-{
-    //if (!map_is_rectangular(game))
-    //    ft_free_error("ERROR: Map is not rectangular!\n", game);
-    if (!map_is_closed(game))
-        ft_free_error("ERROR: Map is not closed!\n", game);
-	else if (!start_pos(game))
+	i = 0;
+	if (!start_pos(game))
 		ft_free_error("ERROR: Wrong player's starting position!\n", game);
+	map_is_closed(game);
+	printf("MAP COPY:\n");
+	while (game->map_copy[i])
+		printf("%s\n", game->map_copy[i++]);
 }

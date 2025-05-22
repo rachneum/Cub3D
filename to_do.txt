@@ -1,21 +1,31 @@
+PB!!!
+fonction parse_map à revoir car je trim tous les \n de ma map avant de la stocker ce qui cause un problème dans cet ex:
+111111
+1000S1
 
--> Attention à bien free tous mes mallocs!!
+100001
+111111
+je n'ai pas de message d'erreur hors que ce n'est pas bon.
+___
+fonction maps_content à revoir car il ne peut pas y avoir d'espaces dans ma map ex:
+111111
+1000S1  devrait me renvoyer erreur!
+100 01
+111111
+
+111111
+1000S1  doit pas me renvoyer erreur!
+100111
+1111 1
+___
+fonction map_is_closed ne dois pas juste checker si ma map est fermée qu'autour du joueur??
+___
+fonction check_textures_path check que chaque direction ai bien sa propre texture.
+___
+fonction check_texture ajouter erreur si direction/texture manquante. (m'assurer qu'il renvoi le bon message d'erreur.)
+___
+fonction check_color ajouter erreur si couleur manquante. (m'assurer qu'il renvoi le bon message d'erreur.)
+___
+-> Checker que j'ai bien tout free correctement!!!!
+
 ____________________
-Initialisation du jeu:
-
--> Créer une struct t_player avec:
-    ->sa position (x, y).
-    ->sa direction (ex: angle ou vecteur).???
--> Initialiser la fenêtre MinilibX.
--> Charger les textures.
-____________________
-Déplacement des événements:
-
--> Gestion des touches:
-    ->W/A/S/D -> déplacement.
-    ->LEFT/RIGHT -> rotation.
-    ->ESC ou croix rouge -> quitter proprement.
--> Utiliser mlx_hook pour gérer les events clavier / souris.
-____________________
-Raycasting:
-

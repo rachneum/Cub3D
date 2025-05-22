@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-int	count_length(char *file)
+/*int	count_length(char *file)
 {
 	int		fd;
 	int		leng;
@@ -24,5 +24,36 @@ int	count_length(char *file)
 	}
 	close(fd);
 	return (leng);
-}
+}*/
 
+char	**copy_map(char **src_map)
+{
+	int		i;
+	char	**copy;
+
+	i = 0;
+	while (src_map[i])
+		i++;
+	copy = malloc(sizeof(char *) * (i + 1));
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (src_map[i])
+	{
+		copy[i] = ft_strdup(src_map[i]);
+		if (!copy[i])
+		{
+			int j = 0;
+			while (j < i)
+			{
+				free(copy[j]);
+				j++;
+			}
+			free(copy);
+			return (NULL);
+		}
+		i++;
+	}
+	copy[i] = NULL;
+	return (copy);
+}

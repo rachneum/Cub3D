@@ -1,8 +1,5 @@
 #include "../cub3D.h"
 
-//Gérer error si texture ou couleur manquante.
-//Dois-je checker si différents fichier textures??
-
 static int	check_textures_path(char *path)//Vérifie chemin vers la texture et format.
 {
     int	len;

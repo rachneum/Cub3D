@@ -26,7 +26,7 @@ int parse_map(t_data *game, char **lines)
 	{
 		if (!maps_content(lines[i]))
 			ft_free_error("ERROR: Wrong element in map!\n", game);
-		trimmed = ft_strtrim(lines[i], " \n");
+		trimmed = ft_strtrim(lines[i], "\n");
 		if (!trimmed)
 			ft_error("ERROR: Trim has failed!\n");
 		if (ft_strlen(trimmed) > 0)
@@ -43,7 +43,7 @@ int parse_map(t_data *game, char **lines)
 	j = 0;
 	while (lines[i])
 	{
-		trimmed = ft_strtrim(lines[i], " \n");
+		trimmed = ft_strtrim(lines[i], "\n");
 		if (!trimmed)
 			ft_error("ERROR: Trim has failed!\n");
 
