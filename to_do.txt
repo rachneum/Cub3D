@@ -1,12 +1,5 @@
 PB!!!
-fonction parse_map à revoir car je trim tous les \n de ma map avant de la stocker ce qui cause un problème dans cet ex:
-111111
-1000S1
 
-100001
-111111
-je n'ai pas de message d'erreur hors que ce n'est pas bon.
-___
 fonction map_is_closed ne dois pas juste checker si ma map est fermée qu'autour du joueur??
 ___
 fonction check_color ajouter erreur si couleur manquante. (m'assurer qu'il renvoi le bon message d'erreur.)

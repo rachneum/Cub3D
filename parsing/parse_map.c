@@ -16,46 +16,46 @@ int	maps_content(char *line)
 
 int parse_map(t_data *game, char **lines)
 {
-	int		i;
-	int		j;
-	char	*trimmed;
+	int	i;
+	int	j;
+	int	found_map_start;
+	int	found_gap;
 
-	i = 0;
+	i = -1;
+	j = 0;
+	found_map_start = 0;
+	found_gap = 0;
 	game->nb_map_lines = 0;
-	while (lines[i])
+	while (lines[++i])
 	{
 		if (!maps_content(lines[i]))
 			ft_free_error("ERROR: Wrong element in map!\n", game);
-		trimmed = ft_strtrim(lines[i], "\n");
-		if (!trimmed)
-			ft_error("ERROR: Trim has failed!\n");
-		if (ft_strlen(trimmed) > 0)
-			game->nb_map_lines++;
-		free(trimmed);
-		i++;
-	}
-	if (!game->nb_map_lines)
-		ft_error("ERROR: Where is the map?\n");
-	game->map = malloc(sizeof(char *) * (game->nb_map_lines + 1));
-	if (!game->map)
-		ft_error("ERROR: Malloc has failed!\n");
-	i = 0;
-	j = 0;
-	while (lines[i])
-	{
-		trimmed = ft_strtrim(lines[i], "\n");
-		if (!trimmed)
-			ft_error("ERROR: Trim has failed!\n");
 
-		if (ft_strlen(trimmed) > 0)
+		if (ft_strlen(lines[i]) > 0 && lines[i][0] != '\n')//Checker si ma ligne est vide et != \n.
 		{
-			game->map[j] = ft_strdup(trimmed);
+			if (found_gap)//Si == 1 alors il y a un trou dans ma map.
+				ft_free_error("ERROR: Map contains gap (empty line inside)!\n", game);
+			found_map_start = 1;
+			game->nb_map_lines++;
+		}
+		else if (found_map_start)
+			found_gap = 1;
+	}
+	if (game->nb_map_lines == 0)
+		ft_error("ERROR: Where is the map?\n");
+	game->map = malloc(sizeof(char *) * (game->nb_map_lines + 1));//Allocation pour map.
+	if (!game->map)
+		ft_error("ERROR: Malloc failed!\n");
+	i = -1;
+	while (lines[++i])
+	{
+		if (ft_strlen(lines[i]) > 0 && lines[i][0] != '\n')
+		{
+			game->map[j] = ft_strdup(lines[i]);
 			if (!game->map[j])
-				ft_error("ERROR: Strdup has failed!\n");
+				ft_error("ERROR: Strdup failed!\n");
 			j++;
 		}
-		free(trimmed);
-		i++;
 	}
 	game->map[j] = NULL;
 	return (1);

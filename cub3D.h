@@ -15,10 +15,6 @@ typedef struct s_data
 	int		check_floor_color;
 	int		check_ceiling_color;
 	int		nb_map_lines;
-	//int		y;
-	//int		x;
-	//int		player_y;
-	//int		player_x;
 	char	**map_copy;
 
 
@@ -27,7 +23,6 @@ typedef struct s_data
 /*________UTILS________*/
 void	ft_error(char *str);
 void	ft_free_error(char *str, t_data *game);
-//int		count_length(char *file);
 int 	check_north(t_data *game, char *line);
 int 	check_south(t_data *game, char *line);
 int 	check_west(t_data *game, char *line);

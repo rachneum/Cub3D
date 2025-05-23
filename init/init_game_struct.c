@@ -9,6 +9,4 @@ void    init_game_struct(t_data *game)
     game->check_floor_color = 0;
     game->check_ceiling_color = 0;
     game->map = NULL;
-    //game->y = game->nb_map_lines;
-    //game->x = count_length(file);
 }
