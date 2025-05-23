@@ -41,8 +41,9 @@ void    init_game_struct(t_data *game);
 void    parse(t_data *game, char *file);
 int		check_texture(t_data *game, char *line);
 int		check_textures_path(char *path);
-int		check_color(t_data *game, char *line);
 void	check_texture_exist(t_data *game);
+void	textures_own_path(t_data *game);
+int		check_color(t_data *game, char *line);
 int		parse_map(t_data *game, char **lines);
 int		maps_content(char *line);
 

@@ -20,13 +20,10 @@ fonction maps_content à revoir car il ne peut pas y avoir d'espaces dans ma map
 ___
 fonction map_is_closed ne dois pas juste checker si ma map est fermée qu'autour du joueur??
 ___
-fonction check_textures_path check que chaque direction ai bien sa propre texture.
-___
 check_texture
 protéger path dans mes conditions au cas où il est vide!
 ___
 fonction check_color ajouter erreur si couleur manquante. (m'assurer qu'il renvoi le bon message d'erreur.)
 ___
 -> Checker que j'ai bien tout free correctement!!!!
-
 ____________________

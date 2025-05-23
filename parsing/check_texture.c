@@ -1,5 +1,17 @@
 #include "../cub3D.h"
 
+void	textures_own_path(t_data *game)
+{
+	if (!strcmp(game->texture[0], game->texture[1]) ||
+		!strcmp(game->texture[0], game->texture[2]) ||
+		!strcmp(game->texture[0], game->texture[3]) ||
+		!strcmp(game->texture[1], game->texture[2]) ||
+		!strcmp(game->texture[1], game->texture[3]) ||
+		!strcmp(game->texture[2], game->texture[3]))
+		ft_error("ERROR: Each direction must have its own texture!\n");
+}
+
+
 void	check_texture_exist(t_data *game)
 {
 	if (!game->texture[0])
@@ -10,6 +22,7 @@ void	check_texture_exist(t_data *game)
 		ft_error("ERROR: Missing WE texture!\n");
 	if (!game->texture[3])
 		ft_error("ERROR: Missing EA texture!\n");
+	textures_own_path(game);
 }
 
 int	check_textures_path(char *path)//Vérifie chemin vers la texture et format.
