@@ -16,6 +16,7 @@ SRCS = 	get_next_line/get_next_line.c \
 		init/init_game_struct.c\
 		parsing/parse.c\
 		parsing/check_texture.c\
+		utils/texture_utils.c\
 		parsing/check_color.c\
 		parsing/parse_map.c\
 		parsing/check_map.c\

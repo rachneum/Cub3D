@@ -1,6 +1,18 @@
 #include "../cub3D.h"
 
-static int	check_textures_path(char *path)//Vérifie chemin vers la texture et format.
+void	check_texture_exist(t_data *game)
+{
+	if (!game->texture[0])
+		ft_error("ERROR: Missing NO texture!\n");
+	if (!game->texture[1])
+		ft_error("ERROR: Missing SO texture!\n");
+	if (!game->texture[2])
+		ft_error("ERROR: Missing WE texture!\n");
+	if (!game->texture[3])
+		ft_error("ERROR: Missing EA texture!\n");
+}
+
+int	check_textures_path(char *path)//Vérifie chemin vers la texture et format.
 {
     int	len;
 	int fd;
@@ -13,83 +25,6 @@ static int	check_textures_path(char *path)//Vérifie chemin vers la texture et f
 	len = ft_strlen(path);
 	if ((ft_strncmp(path + len - 4, ".xpm", 4)) != 0)
 		ft_error("ERROR: Texture format is invalid!\n");//Vérifie format fichier texture.
-	return (0);
-}
-
-static int	check_east(t_data *game, char *line)
-{
-	char	*path;
-
-	if (ft_strncmp(line, "EA ", 3) == 0)
-	{
-		if (game->texture[3] != NULL)
-			ft_error("ERROR: Duplicate EA texture!\n");
-		path = ft_strtrim(line + 3, " \n");
-		if (check_textures_path(path))
-	    	ft_error("ERROR: Invalid texture path");
-		game->texture[3] = ft_strdup(path);
-		free(path);
-		printf ("%s\n", line);
-		return (1);
-	}
-	return (0);
-}
-
-static int check_west(t_data *game, char *line)
-{
-	char	*path;
-
-	if (ft_strncmp(line, "WE ", 3) == 0)
-	{
-		if (game->texture[2] != NULL)
-			ft_error("ERROR: Duplicate WE texture!\n");
-		path = ft_strtrim(line + 3, " \n");
-		if (check_textures_path(path))
-	    	ft_error("ERROR: Invalid texture path");
-		game->texture[2] = ft_strdup(path);
-		free(path);
-		printf ("%s\n", line);
-		return (1);
-	}
-	return (0);
-}
-
-static int check_south(t_data *game, char *line)
-{
-	char	*path;
-
-	if (ft_strncmp(line, "SO ", 3) == 0)
-	{
-		if (game->texture[1] != NULL)
-			ft_error("ERROR: Duplicate SO texture!\n");
-		path = ft_strtrim(line + 3, " \n");
-		if (check_textures_path(path))
-	    	ft_error("ERROR: Invalid texture path");
-		game->texture[1] = ft_strdup(path);
-		free(path);
-		printf ("%s\n", line);
-		return (1);
-	}
-	return (0);
-}
-
-static int check_north(t_data *game, char *line)
-{
-	char	*path;
-
-	if (ft_strncmp(line, "NO ", 3) == 0)
-	{
-		if (game->texture[0] != NULL)
-			ft_error("ERROR: Duplicate NO texture!\n");
-		path = ft_strtrim(line + 3, " \n");//strtrim va supprimer les espaces et \n. line + 3 pour pointer sur le "./...".
-		if (check_textures_path(path))
-	    	ft_error("ERROR: Invalid texture path");
-		game->texture[0] = ft_strdup(path);
-		free(path);
-		printf ("%s\n", line);
-		return (1);
-	}
-
 	return (0);
 }
 

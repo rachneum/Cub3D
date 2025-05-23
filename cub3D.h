@@ -28,6 +28,10 @@ typedef struct s_data
 void	ft_error(char *str);
 void	ft_free_error(char *str, t_data *game);
 //int		count_length(char *file);
+int 	check_north(t_data *game, char *line);
+int 	check_south(t_data *game, char *line);
+int 	check_west(t_data *game, char *line);
+int		check_east(t_data *game, char *line);
 char	**copy_map(char **src_map);
 
 /*________INIT________*/
@@ -36,7 +40,9 @@ void    init_game_struct(t_data *game);
 /*________PARSE________*/
 void    parse(t_data *game, char *file);
 int		check_texture(t_data *game, char *line);
+int		check_textures_path(char *path);
 int		check_color(t_data *game, char *line);
+void	check_texture_exist(t_data *game);
 int		parse_map(t_data *game, char **lines);
 int		maps_content(char *line);
 
