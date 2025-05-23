@@ -54,7 +54,8 @@ int	check_texture(t_data *game, char *line)
 	if (ft_strncmp(line, "F", 1) == 0 || ft_strncmp(line, "C", 1) == 0)
 	{
 		return (check_color(game, line));
-		printf ("%s\n", line);
 	}
+	else if (game->check_floor_color == 0 || game->check_ceiling_color == 0)
+		ft_error("ERROR: Color is missing!\n");
 	return (0);
 }

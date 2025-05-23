@@ -2,7 +2,5 @@ PB!!!
 
 fonction map_is_closed ne dois pas juste checker si ma map est fermée qu'autour du joueur??
 ___
-fonction check_color ajouter erreur si couleur manquante. (m'assurer qu'il renvoi le bon message d'erreur.)
-___
 -> Checker que j'ai bien tout free correctement!!!!
 ____________________
