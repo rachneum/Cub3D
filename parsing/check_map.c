@@ -4,7 +4,7 @@ static int	flood_fill(t_data *game, int y, int x)
 {
 	if (y < 0 || x < 0 || !game->map_copy[y] || x >= (int)ft_strlen(game->map_copy[y]))
 		return (1);//Fuite détectée.
-	if (game->map_copy[y][x] == ' ' || game->map_copy[y][x] == '\0')
+	if (game->map_copy[y][x] == ' ' || game->map_copy[y][x] == '\t' || game->map_copy[y][x] == '\0')
 		return (1);//Fuite détectée.
 	if (game->map_copy[y][x] == '1' || game->map_copy[y][x] == 'X')
 		return (0);//Mur ou déjà visité.

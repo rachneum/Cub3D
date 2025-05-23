@@ -7,17 +7,6 @@ fonction parse_map à revoir car je trim tous les \n de ma map avant de la stock
 111111
 je n'ai pas de message d'erreur hors que ce n'est pas bon.
 ___
-fonction maps_content à revoir car il ne peut pas y avoir d'espaces dans ma map ex:
-111111
-1000S1  devrait me renvoyer erreur!
-100 01
-111111
-
-111111
-1000S1  doit pas me renvoyer erreur!
-100111
-1111 1
-___
 fonction map_is_closed ne dois pas juste checker si ma map est fermée qu'autour du joueur??
 ___
 fonction check_color ajouter erreur si couleur manquante. (m'assurer qu'il renvoi le bon message d'erreur.)
