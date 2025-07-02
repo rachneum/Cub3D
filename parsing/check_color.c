@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-static int	parse_color(char *str)//Check RGB.
+static int	parse_color(char *str)
 {
 	char	**rgb;
 	char	*cleaned[3];
@@ -47,30 +47,28 @@ int	check_color(t_data *game, char *line)
 	if (ft_strncmp(line, "F", 1) == 0)
 	{
 		if (game->check_floor_color != 0)
-			ft_error("ERROR: Duplicate floor color!\n");
+			ft_error("ERROR\nDuplicate floor color!\n");
 		value = ft_strtrim(line + 2, " \n");
 		if (value[0] == '\0' || !value)
 		{
 			free(value);
-			ft_error("ERROR: Color value is missing!\n");
+			ft_error("ERROR\nColor value is missing!\n");
 		}
 		game->check_floor_color = parse_color(value);
-		printf("%s\n", line);
 		free(value);
 		return (1);
 	}
 	else if (ft_strncmp(line, "C", 1) == 0)
 	{
 		if (game->check_ceiling_color != 0)
-			ft_error("ERROR: Duplicate ceiling color!\n");
+			ft_error("ERROR\nDuplicate ceiling color!\n");
 		value = ft_strtrim(line + 2, " \n");
 		if (!value || value[0] == '\0')
 		{
 			free(value);
-			ft_error("ERROR: Color value is missing!\n");
+			ft_error("ERROR\nColor value is missing!\n");
 		}
 		game->check_ceiling_color = parse_color(value);
-		printf("%s\n", line);
 		free(value);
 		return (1);
 	}

@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-static char **read_lines(char *file)
+static char	**read_lines(char *file)
 {
 	char	**lines;
 	char	*line;
@@ -58,10 +58,7 @@ void	parse(t_data *game, char *file)
 	}
 	check_texture_exist(game);
 	if (!parse_map(game, &lines[i]))
-		ft_free_error("ERROR: Map parsing has failed!\n", game);
-	//i = 0;
-	//while (game->map[i])
-	//	printf("%s\n", game->map[i++]);
+		ft_free_error("ERROR\nMap parsing has failed!\n", game);
 	i = 0;
 	while (lines[i])
 		free(lines[i++]);

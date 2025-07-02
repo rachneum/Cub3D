@@ -34,7 +34,7 @@ int parse_map(t_data *game, char **lines)
 		if (ft_strlen(lines[i]) > 0 && lines[i][0] != '\n')//Checker si ma ligne est vide et != \n.
 		{
 			if (found_gap)//Si == 1 alors il y a un trou dans ma map.
-				ft_free_error("ERROR: Map contains gap (empty line inside)!\n", game);
+				ft_free_error("ERROR\nMap contains gap (empty line inside)!\n", game);
 			found_map_start = 1;
 			game->nb_map_lines++;
 		}
@@ -42,10 +42,10 @@ int parse_map(t_data *game, char **lines)
 			found_gap = 1;
 	}
 	if (game->nb_map_lines == 0)
-		ft_error("ERROR: Where is the map?\n");
+		ft_error("ERROR\nWhere is the map?\n");
 	game->map = malloc(sizeof(char *) * (game->nb_map_lines + 1));//Allocation pour map.
 	if (!game->map)
-		ft_error("ERROR: Malloc failed!\n");
+		ft_error("ERROR\nMalloc failed!\n");
 	i = -1;
 	while (lines[++i])
 	{

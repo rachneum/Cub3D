@@ -1,6 +1,6 @@
-PB!!!
-
-fonction map_is_closed ne dois pas juste checker si ma map est fermée qu'autour du joueur??
-___
--> Checker que j'ai bien tout free correctement!!!!
-____________________
+parse_color
+check_color
+map_is_closed à refaire
+parse_map
+read_lines
+parse

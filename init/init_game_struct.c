@@ -1,6 +1,6 @@
 #include "../cub3D.h"
 
-void    init_game_struct(t_data *game)
+void	init_game_struct(t_data *game)
 {
     game->texture[0] = NULL;
     game->texture[1] = NULL;

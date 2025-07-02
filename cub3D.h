@@ -28,6 +28,7 @@ int 	check_south(t_data *game, char *line);
 int 	check_west(t_data *game, char *line);
 int		check_east(t_data *game, char *line);
 char	**copy_map(char **src_map);
+void	ft_free_all_error(char *str, t_data *game);
 
 /*________INIT________*/
 void    init_game_struct(t_data *game);
