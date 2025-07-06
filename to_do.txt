@@ -1,12 +1,3 @@
-A normer: 
-colors->parse_color()
-
-
-
-
--> ouvrir les fichier texture voir si le contenu est ok?
-
-
 
 -> gérer ce cas comme 2 différentes map en 1 fichier ou ne pas gérer?
 

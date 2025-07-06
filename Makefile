@@ -16,11 +16,13 @@ SRCS = 	get_next_line/get_next_line.c \
 		main.c\
 		init_struct.c\
 		parsing/parse.c\
-		parsing/textures.c\
-		parsing/colors.c\
-		parsing/map.c\
-		parsing/map_2.c\
-		parsing/map_3.c\
+		parsing/textures/textures.c\
+		parsing/textures/textures_2.c\
+		parsing/colors/colors.c\
+		parsing/colors/colors_2.c\
+		parsing/map/map.c\
+		parsing/map/map_2.c\
+		parsing/map/map_3.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -15,12 +15,14 @@ typedef struct s_data
     char	**entire_fd;
     char	*trimmed;
     char	*texture[4];
-
+	
     int		check_floor_color;
 	int		check_ceiling_color;
     int		floor_color;
     int		ceiling_color;
 	int		comma_cnt;
+	char	**rgb;
+	char	**cleaned;
     int		r;
 	int		g;
 	int		b;
@@ -45,8 +47,17 @@ void	init_struct(t_data *game);
 
 /*_____PARSING_____*/
 void	parse(t_data *game, char *file);
+//TEXTURES
 int		check_texture(t_data *game, char *line);
-void	check_color(t_data *game, char *line);
+void	check_textures_path(char *path);
+//COLORS
+void		check_color(t_data *game, char *line);
+void		extract_rgb_values(t_data *game, char *str, int i);
+void		validate_rgb_components(t_data *game, int i, int j);
+void		free_str_array(char **arr);
+void		free_str_array_error(t_data *game);
+int 		create_trgb(int t, t_data *game);
+//MAP
 void	parse_map(t_data *game, int 	map_start_index);
 int		flood_fill(t_data *game, int y, int x);
 void	map_borders(t_data *game);
