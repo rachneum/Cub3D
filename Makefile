@@ -1,7 +1,7 @@
 NAME = cub3D
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 MLX_DIR = mlx
 LIBFT_DIR = libft
@@ -11,16 +11,14 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = 	get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
+		errors/error.c\
 		main.c\
-		utils/utils_error.c\
-		init/init_game_struct.c\
+		init_struct.c\
 		parsing/parse.c\
-		parsing/check_texture.c\
-		utils/texture_utils.c\
-		parsing/check_color.c\
-		parsing/parse_map.c\
-		parsing/check_map.c\
-		utils/map_utils.c\
+		parsing/textures.c\
+		parsing/colors.c\
+		parsing/map.c\
+		parsing/map_2.c\
 
 OBJS = $(SRCS:.c=.o)
 
