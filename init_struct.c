@@ -12,8 +12,13 @@ void    init_struct(t_data *game)
     game->texture[1] = NULL;
 	game->texture[2] = NULL;
 	game->texture[3] = NULL;
+
     game->check_floor_color = 0;
 	game->check_ceiling_color = 0;
+    game->r = 0;
+    game->g = 0;
+    game->b = 0;
+
     game->cnt_map_lines = 0;
     game->map = NULL;
     game->map_copy = NULL;

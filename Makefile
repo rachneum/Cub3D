@@ -10,8 +10,9 @@ INCLUDES = -I$(MLX_DIR) -I$(LIBFT_DIR)
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = 	get_next_line/get_next_line.c \
-		get_next_line/get_next_line_utils.c \
+		get_next_line/get_next_line_utils.c\
 		errors/error.c\
+		errors/error_2.c\
 		main.c\
 		init_struct.c\
 		parsing/parse.c\
@@ -19,6 +20,7 @@ SRCS = 	get_next_line/get_next_line.c \
 		parsing/colors.c\
 		parsing/map.c\
 		parsing/map_2.c\
+		parsing/map_3.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -1,3 +1,8 @@
+A normer: 
+colors->parse_color()
+
+
+
 
 -> ouvrir les fichier texture voir si le contenu est ok?
 

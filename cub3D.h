@@ -10,40 +10,49 @@
 
 typedef struct s_data
 {
-    int     fd;
-    int     cnt;
-    char    **entire_fd;
-    char    *trimmed;
-    char    *texture[4];
-    int     check_floor_color;
-	int     check_ceiling_color;
-    int     floor_color;
-    int     ceiling_color;
-    int     cnt_map_lines;
-    char    **map;
-    char    **map_copy;
+    int		fd;
+    int		cnt;
+    char	**entire_fd;
+    char	*trimmed;
+    char	*texture[4];
+
+    int		check_floor_color;
+	int		check_ceiling_color;
+    int		floor_color;
+    int		ceiling_color;
+	int		comma_cnt;
+    int		r;
+	int		g;
+	int		b;
+
+    int		cnt_map_lines;
+    char	**map;
+    char	**map_copy;
+
 }   t_data;
 
 /*_____ERRORS_____*/
-void    ft_error(char *str);
-void    free_entire_fd(t_data *game);
-void    free_error_fd(char *str, t_data *game);
-void    free_map(t_data *game);
-void    free_error_map(char *str, t_data *game);
-void    free_map_copy(t_data *game);
-void    free_err_all_maps(char *str, t_data *game);
+void	ft_error(char *str);
+void	free_entire_fd(t_data *game);
+void	free_error_fd(char *str, t_data *game);
+void	free_map(t_data *game);
+void	free_error_map(char *str, t_data *game);
+void	free_map_copy(t_data *game);
+void	free_err_all_maps(char *str, t_data *game);
 
 /*_____INIT_____*/
-void    init_struct(t_data *game);
+void	init_struct(t_data *game);
 
 /*_____PARSING_____*/
-void    parse(t_data *game, char *file);
-int     check_texture(t_data *game, char *line);
-void     check_color(t_data *game, char *line);
-void    parse_map(t_data *game, int map_start_index);
+void	parse(t_data *game, char *file);
+int		check_texture(t_data *game, char *line);
+void	check_color(t_data *game, char *line);
+void	parse_map(t_data *game, int 	map_start_index);
+int		flood_fill(t_data *game, int y, int x);
+void	map_borders(t_data *game);
+void	check_invalid_zero(t_data *game);
 
 /*_____MAP_____*/
-void    map_is_valid(t_data *game);
-
+void	map_is_valid(t_data *game);
 
 #endif
