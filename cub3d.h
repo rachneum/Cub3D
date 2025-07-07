@@ -41,7 +41,7 @@ void	free_map(t_data *game);
 void	free_error_map(char *str, t_data *game);
 void	free_map_copy(t_data *game);
 void	free_err_all_maps(char *str, t_data *game);
-
+void	free_txt(t_data *game);
 /*_____INIT_____*/
 void	init_struct(t_data *game);
 

@@ -1,28 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   colors.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 17:54:57 by raneuman          #+#    #+#             */
+/*   Updated: 2025/07/07 17:54:58 by raneuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
-static int  parse_color(char *str, t_data *game, int i, int j)
+static int	parse_color(char *str, t_data *game, int i, int j)
 {
 	extract_rgb_values(game, str, -1);
-    while (game->rgb[i])
-        i++;
-    if (i != 3)
+	while (game->rgb[i])
+		i++;
+	if (i != 3)
 		free_str_array_error(game);
 	validate_rgb_components(game, -1, j);
-    game->r = ft_atoi(game->cleaned[0]);
-    game->g = ft_atoi(game->cleaned[1]);
-    game->b = ft_atoi(game->cleaned[2]);
-    if (game->r < 0 || game->r > 255 || game->g < 0 || game->g > 255 || game->b < 0 || game->b > 255)
-    {
-        i = 0;
-        while (i < 3)
-            free(game->cleaned[i++]);
+	game->r = ft_atoi(game->cleaned[0]);
+	game->g = ft_atoi(game->cleaned[1]);
+	game->b = ft_atoi(game->cleaned[2]);
+	if (game->r < 0 || game->r > 255 || game->g < 0 || game->g > 255
+		|| game->b < 0 || game->b > 255)
+	{
+		i = 0;
+		while (i < 3)
+			free(game->cleaned[i++]);
 		free_str_array_error(game);
-    }
-    i = 0;
+	}
+	i = 0;
 	while (i < 3)
 		free(game->cleaned[i++]);
-    free_str_array(game->rgb);
-    return (create_trgb(0, game));
+	free(game->cleaned);
+	free_str_array(game->rgb);
+	return (create_trgb(0, game));
 }
 
 static void	c_color(t_data *game, char *line)
@@ -48,7 +62,7 @@ static void	f_color(t_data *game, char *line)
 	char	*value;
 
 	if (game->check_floor_color != 0)
-			ft_error("Error\nInvalid file!\n");
+		ft_error("Error\nInvalid file!\n");
 	value = ft_strtrim(line + 2, " \n");
 	if (value[0] == '\0' || !value)
 	{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 17:56:34 by raneuman          #+#    #+#             */
+/*   Updated: 2025/07/07 17:56:35 by raneuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 static char	**copy_map(char **src_map)
@@ -43,7 +55,8 @@ static void	map_is_closed(t_data *game)
 		x = 0;
 		while (game->map[y][x])
 		{
-			if (game->map[y][x] == 'N' || game->map[y][x] == 'S' || game->map[y][x] == 'E' || game->map[y][x] == 'W')
+			if (game->map[y][x] == 'N' || game->map[y][x] == 'S'
+				|| game->map[y][x] == 'E' || game->map[y][x] == 'W')
 			{
 				if (flood_fill(game, y, x))
 					free_err_all_maps("Error\nInvalid map!\n", game);
@@ -66,9 +79,10 @@ static int	start_pos(t_data *game)
 	while (game->map[y])
 	{
 		x = 0;
-		while(game->map[y][x])
+		while (game->map[y][x])
 		{
-			if (game->map[y][x] == 'N' || game->map[y][x] == 'S' || game->map[y][x] == 'E' || game->map[y][x] == 'W')
+			if (game->map[y][x] == 'N' || game->map[y][x] == 'S'
+				|| game->map[y][x] == 'E' || game->map[y][x] == 'W')
 				count++;
 			x++;
 		}
@@ -94,6 +108,4 @@ void	map_is_valid(t_data *game)
 		printf("%s\n", game->map_copy[i++]);
 	map_borders(game);
 	check_invalid_zero(game);
-	free(game->map_copy);
-	free(game->map);
 }

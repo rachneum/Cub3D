@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 18:05:15 by raneuman          #+#    #+#             */
+/*   Updated: 2025/07/07 18:08:05 by raneuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
 static int	is_valid_element_2(char *line, t_data *game)
@@ -31,18 +43,18 @@ static int	is_valid_element(char *line, t_data *game)
 		return (0);
 	if (ft_strlen(line) == 0)
 		return (1);
-		if (ft_strncmp(line, "NO", 2) == 0)
-		{
-			game->cnt += 1;
-			return (1);
-		}
-		if (ft_strncmp(line, "SO", 2) == 0)
-		{
-			game->cnt += 2;
-			return (1);
-		}
-		if (is_valid_element_2(line, game))
-			return (1);
+	if (ft_strncmp(line, "NO", 2) == 0)
+	{
+		game->cnt += 1;
+		return (1);
+	}
+	if (ft_strncmp(line, "SO", 2) == 0)
+	{
+		game->cnt += 2;
+		return (1);
+	}
+	if (is_valid_element_2(line, game))
+		return (1);
 	return (0);
 }
 
@@ -62,7 +74,8 @@ static char	**read_lines(t_data *game, char *file)
 
 	count = 0;
 	open_file(game, file);
-	while ((line = get_next_line(game->fd)) != NULL)
+	line = get_next_line(game->fd);
+	while (line != NULL)
 	{
 		count++;
 		free(line);
@@ -75,14 +88,15 @@ static char	**read_lines(t_data *game, char *file)
 	if (!entire_fd)
 		ft_error("Error\nMalloc failed\n");
 	i = 0;
-	while ((line = get_next_line(game->fd)) != NULL)
+	line = get_next_line(game->fd);
+	while (line != NULL)
 		entire_fd[i++] = line;
 	entire_fd[i] = NULL;
 	close(game->fd);
 	return (entire_fd);
 }
 
-static void	parse_2(t_data * game)
+static void	parse_2(t_data *game)
 {
 	if (!game->trimmed)
 		free_error_fd("Error\nTrim failure!\n", game);
@@ -123,7 +137,7 @@ void	parse(t_data *game, char *file)
 			if (!check_texture(game, game->trimmed))
 			{
 				free(game->trimmed);
-				break;
+				break ;
 			}
 		}
 		if (game->trimmed)

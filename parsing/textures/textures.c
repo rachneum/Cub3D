@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   textures.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 18:03:39 by raneuman          #+#    #+#             */
+/*   Updated: 2025/07/07 18:04:50 by raneuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 static int	check_east(t_data *game, char *line)
@@ -16,12 +28,20 @@ static int	check_east(t_data *game, char *line)
 		}
 		check_textures_path(path);
 		game->texture[3] = ft_strdup(path);
+		if (!game->texture[3])
+		{
+			free(path);
+			free_txt(game);
+			ft_error("Error\nInvalid file!\n");
+		}
 		free(path);
+		free_txt(game);
 		printf ("%s\n", line);
 		return (1);
 	}
 	return (0);
 }
+
 static int	check_west(t_data *game, char *line)
 {
 	char	*path;
@@ -38,12 +58,20 @@ static int	check_west(t_data *game, char *line)
 		}
 		check_textures_path(path);
 		game->texture[2] = ft_strdup(path);
+		if (!game->texture[2])
+		{
+			free(path);
+			free_txt(game);
+			ft_error("Error\nInvalid file!\n");
+		}
 		free(path);
+		free_txt(game);
 		printf ("%s\n", line);
 		return (1);
 	}
 	return (0);
 }
+
 static int	check_south(t_data *game, char *line)
 {
 	char	*path;
@@ -60,12 +88,20 @@ static int	check_south(t_data *game, char *line)
 		}
 		check_textures_path(path);
 		game->texture[1] = ft_strdup(path);
+		if (!game->texture[1])
+		{
+			free(path);
+			free_txt(game);
+			ft_error("Error\nInvalid file!\n");
+		}
 		free(path);
+		free_txt(game);
 		printf("%s\n", line);
 		return (1);
 	}
 	return (0);
 }
+
 static int	check_north(t_data *game, char *line)
 {
 	char	*path;
@@ -82,7 +118,14 @@ static int	check_north(t_data *game, char *line)
 		}
 		check_textures_path(path);
 		game->texture[0] = ft_strdup(path);
+		if (!game->texture[0])
+		{
+			free(path);
+			free_txt(game);
+			ft_error("Error\nInvalid file!\n");
+		}
 		free(path);
+		free_txt(game);
 		printf("%s\n", line);
 		return (1);
 	}
@@ -91,13 +134,13 @@ static int	check_north(t_data *game, char *line)
 
 int	check_texture(t_data *game, char *line)
 {
-	if (check_north(game,line))
+	if (check_north(game, line))
 		return (1);
-	if (check_south(game,line))
+	if (check_south(game, line))
 		return (1);
-	if (check_west(game,line))
+	if (check_west(game, line))
 		return (1);
-	if (check_east(game,line))
+	if (check_east(game, line))
 		return (1);
 	if (ft_strncmp(line, "F", 1) == 0 || ft_strncmp(line, "C", 1) == 0)
 	{

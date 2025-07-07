@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/07 17:49:05 by raneuman          #+#    #+#             */
+/*   Updated: 2025/07/07 17:49:06 by raneuman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
 void	ft_error(char *str)
@@ -8,7 +20,7 @@ void	ft_error(char *str)
 
 void	free_entire_fd(t_data *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!game->entire_fd)

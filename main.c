@@ -16,6 +16,8 @@ int main(int argc, char **argv)
 	init_struct(game);
 	parse(game, argv[1]);
 	map_is_valid(game);
+	free_map(game);
+	free_map_copy(game);
 	free(game);
 	return (0);
 }
