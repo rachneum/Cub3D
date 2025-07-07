@@ -74,8 +74,7 @@ static char	**read_lines(t_data *game, char *file)
 
 	count = 0;
 	open_file(game, file);
-	line = get_next_line(game->fd);
-	while (line != NULL)
+	while ((line = get_next_line(game->fd)) != NULL)
 	{
 		count++;
 		free(line);
@@ -88,8 +87,7 @@ static char	**read_lines(t_data *game, char *file)
 	if (!entire_fd)
 		ft_error("Error\nMalloc failed\n");
 	i = 0;
-	line = get_next_line(game->fd);
-	while (line != NULL)
+	while ((line = get_next_line(game->fd)) != NULL)
 		entire_fd[i++] = line;
 	entire_fd[i] = NULL;
 	close(game->fd);

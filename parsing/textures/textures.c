@@ -36,7 +36,7 @@ static int	check_east(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		printf ("%s\n", line);
+		//printf ("%s\n", line);
 		return (1);
 	}
 	return (0);
@@ -66,7 +66,7 @@ static int	check_west(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		printf ("%s\n", line);
+		//printf ("%s\n", line);
 		return (1);
 	}
 	return (0);
@@ -96,7 +96,7 @@ static int	check_south(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		printf("%s\n", line);
+		//printf("%s\n", line);
 		return (1);
 	}
 	return (0);
@@ -126,7 +126,7 @@ static int	check_north(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		printf("%s\n", line);
+		//printf("%s\n", line);
 		return (1);
 	}
 	return (0);

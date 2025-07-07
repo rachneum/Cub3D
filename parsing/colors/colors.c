@@ -53,7 +53,7 @@ static void	c_color(t_data *game, char *line)
 	}
 	game->check_ceiling_color = 1;
 	game->ceiling_color = parse_color(value, game, 0, -1);
-	printf("%s\n", line);
+	//printf("%s\n", line);
 	free(value);
 }
 
@@ -71,7 +71,7 @@ static void	f_color(t_data *game, char *line)
 	}
 	game->check_floor_color = 1;
 	game->floor_color = parse_color(value, game, 0, -1);
-	printf("%s\n", line);
+	//printf("%s\n", line);
 	free(value);
 }
 

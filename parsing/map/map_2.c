@@ -95,6 +95,48 @@ static int	start_pos(t_data *game)
 	return (1);
 }
 
+static int	is_line_truly_empty(char *line)
+{
+	int i;
+
+	i = 0;
+	if (!line)
+		return (1);
+	while (line[i])
+	{
+		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static void	check_map_empty_lines(t_data *game)
+{
+	int	i;
+	int	in_map;
+	int	empty_found;
+
+	i = 0;
+	in_map = 0;
+	empty_found = 0;
+	while (game->map[i])
+	{
+		if (is_line_truly_empty(game->map[i]))
+		{
+			if (in_map)
+				empty_found = 1;
+		}
+		else
+		{
+			if (empty_found)
+				free_error_map("Error\nInvalid map\n", game);
+			in_map = 1;
+		}
+		i++;
+	}
+}
+
 void	map_is_valid(t_data *game)
 {
 	int	i;
@@ -102,10 +144,11 @@ void	map_is_valid(t_data *game)
 	i = 0;
 	if (!start_pos(game))
 		free_error_map("Error\nInvalid map\n", game);
+	check_map_empty_lines(game);
 	map_is_closed(game);
-	printf("MAP COPY:\n");
-	while (game->map_copy[i])
-		printf("%s\n", game->map_copy[i++]);
+	//printf("MAP COPY:\n");
+	//while (game->map_copy[i])
+	//	printf("%s\n", game->map_copy[i++]);
 	map_borders(game);
 	check_invalid_zero(game);
 }
