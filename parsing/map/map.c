@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:00:13 by raneuman          #+#    #+#             */
-/*   Updated: 2025/07/07 18:01:11 by raneuman         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:37:54 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	allocation_map(t_data *game)
 {
 	if (game->cnt_map_lines == 0)
-		free_error_fd("Error\nWhere is the map?\n", game);
+		free_error_fd("Error\nInvalid file\n", game);
 	game->map = malloc(sizeof(char *) * (game->cnt_map_lines + 1));
 	if (!game->map)
 		free_error_fd("Error\nMalloc failure!\n", game);
@@ -48,7 +48,7 @@ void	parse_map(t_data *game, int map_start_index)
 	while (game->entire_fd[++i])
 	{
 		if (!map_content(game->entire_fd[i]))
-			free_error_fd("Error\nInvalid map!\n", game);
+			free_error_fd("Error\nInvalid file!\n", game);
 		game->cnt_map_lines++;
 	}
 	allocation_map(game);
@@ -60,7 +60,7 @@ void	parse_map(t_data *game, int map_start_index)
 		if (!game->map[j])
 		{
 			free_map(game);
-			free_error_fd("Error\nFailure map copy!\n", game);
+			free_error_fd("Error\nInvalid file!\n", game);
 		}
 		j++;
 	}

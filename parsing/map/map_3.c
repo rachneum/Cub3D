@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:57:20 by raneuman          #+#    #+#             */
-/*   Updated: 2025/07/07 17:59:55 by raneuman         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:41:14 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,33 @@ int	flood_fill(t_data *game, int y, int x)
 	if (flood_fill(game, y, x + 1))
 		return (1);
 	return (0);
+}
+
+char	**copy_map(char **src_map)
+{
+	int		i;
+	char	**copy;
+	int		j;
+
+	i = 0;
+	while (src_map[i])
+		i++;
+	copy = malloc(sizeof(char *) * (i + 1));
+	if (!copy)
+		return (NULL);
+	i = -1;
+	while (src_map[++i])
+	{
+		copy[i] = ft_strdup(src_map[i]);
+		if (!copy[i])
+		{
+			j = -1;
+			while (++j < i)
+				free(copy[j]);
+			free(copy);
+			return (NULL);
+		}
+	}
+	copy[i] = NULL;
+	return (copy);
 }

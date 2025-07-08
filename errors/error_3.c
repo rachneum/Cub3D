@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/07 17:49:05 by raneuman          #+#    #+#             */
-/*   Updated: 2025/07/08 13:54:21 by raneuman         ###   ########.fr       */
+/*   Created: 2025/07/08 13:49:58 by raneuman          #+#    #+#             */
+/*   Updated: 2025/07/08 13:54:04 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../cube3d.h"
 
-void	ft_error(char *str)
-{
-	ft_putstr_fd(str, 2);
-	exit(EXIT_FAILURE);
-}
-
-void	free_entire_fd(t_data *game)
+void	free_str_array(char **arr)
 {
 	int	i;
 
 	i = 0;
-	if (!game->entire_fd)
+	if (!arr)
 		return ;
-	while (game->entire_fd[i])
-		free(game->entire_fd[i++]);
-	free(game->entire_fd);
-	game->entire_fd = NULL;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
-void	free_error_fd(char *str, t_data *game)
+void	free_str_array_error(t_data *game)
 {
-	free_entire_fd(game);
-	ft_putstr_fd(str, 2);
-	exit(EXIT_FAILURE);
+	free_str_array(game->rgb);
+	ft_error("Error\nInvalid file!\n");
+}
+
+void	free_error_cleaned(t_data *game)
+{
+	free(game->cleaned);
+	ft_error("Error\nInvalid file!\n");
 }

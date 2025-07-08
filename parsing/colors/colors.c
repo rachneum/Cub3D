@@ -6,11 +6,33 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:54:57 by raneuman          #+#    #+#             */
-/*   Updated: 2025/07/07 17:54:58 by raneuman         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:52:46 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+
+static void	extract_rgb_values(t_data *game, char *str, int i)
+{
+	game->cleaned = malloc(sizeof(char *) * 3);
+	if (!game->cleaned)
+		ft_error("Error\nMalloc failed!\n");
+	game->comma_cnt = 0;
+	while (str[++i])
+	{
+		if (str[i] == ',')
+		{
+			game->comma_cnt++;
+			if (str[i + 1] == ',' || i == 0 || str[i + 1] == '\0')
+				free_error_cleaned(game);
+		}
+	}
+	if (game->comma_cnt != 2)
+		free_error_cleaned(game);
+	game->rgb = ft_split(str, ',');
+	if (!game->rgb)
+		free_error_cleaned(game);
+}
 
 static int	parse_color(char *str, t_data *game, int i, int j)
 {
@@ -53,7 +75,6 @@ static void	c_color(t_data *game, char *line)
 	}
 	game->check_ceiling_color = 1;
 	game->ceiling_color = parse_color(value, game, 0, -1);
-	//printf("%s\n", line);
 	free(value);
 }
 
@@ -71,7 +92,6 @@ static void	f_color(t_data *game, char *line)
 	}
 	game->check_floor_color = 1;
 	game->floor_color = parse_color(value, game, 0, -1);
-	//printf("%s\n", line);
 	free(value);
 }
 

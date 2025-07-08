@@ -6,24 +6,11 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:48:58 by raneuman          #+#    #+#             */
-/*   Updated: 2025/07/07 17:48:59 by raneuman         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:45:55 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-//void	free_str(char **str)
-//{
-//	int	i;
-//
-//	i = 0;
-//	if (!str)
-//		return ;
-//	while (str[i])
-//		free(str[i++]);
-//	free(str);
-//	str = NULL;
-//}
 
 void	free_map(t_data *game)
 {

@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 18:03:39 by raneuman          #+#    #+#             */
-/*   Updated: 2025/07/07 18:04:50 by raneuman         ###   ########.fr       */
+/*   Updated: 2025/07/08 13:35:22 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static int	check_east(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		//printf ("%s\n", line);
 		return (1);
 	}
 	return (0);
@@ -66,7 +65,6 @@ static int	check_west(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		//printf ("%s\n", line);
 		return (1);
 	}
 	return (0);
@@ -96,7 +94,6 @@ static int	check_south(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		//printf("%s\n", line);
 		return (1);
 	}
 	return (0);
@@ -126,7 +123,6 @@ static int	check_north(t_data *game, char *line)
 		}
 		free(path);
 		free_txt(game);
-		//printf("%s\n", line);
 		return (1);
 	}
 	return (0);
