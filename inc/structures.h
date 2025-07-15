@@ -6,7 +6,7 @@
 /*   By: raneuman <raneuman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 11:53:00 by csteylae          #+#    #+#             */
-/*   Updated: 2025/07/15 15:58:18 by raneuman         ###   ########.fr       */
+/*   Updated: 2025/07/15 16:06:06 by raneuman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,20 +97,6 @@ typedef struct s_line
 	t_int_vec	end;
 }	t_line;
 
-typedef struct s_mlx_data
-{
-	void				*mlx;
-	void				*win;
-	char				**map;
-	t_player			player;
-	t_texture			texture[4];
-	t_img				framebuffer;
-	t_key				key;
-	int					ceiling;
-	int					floor;
-	t_data				*game;
-}	t_mlx_data;
-
 
 /*______________RACHEL______________*/
 typedef struct s_data
@@ -135,5 +121,20 @@ typedef struct s_data
 	char	**map;
 	char	**map_copy;
 }	t_data;
+
+typedef struct s_mlx_data
+{
+	void				*mlx;
+	void				*win;
+	char				**map;
+	t_player			player;
+	t_texture			texture[4];
+	t_img				framebuffer;
+	t_key				key;
+	int					ceiling;
+	int					floor;
+	t_data				*game;
+}	t_mlx_data;
+
 
 #endif
